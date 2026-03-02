@@ -150,7 +150,7 @@ describe('API fetch functions', () => {
 
     it('updateProduct sends PUT request and returns updated product', async () => {
         const updatedProduct: Product = productMock;
-        const data: FormDataProduct = { title: 'Updated Product' } as any;
+        const data: FormDataProduct = formDataProductMock;
 
         (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
@@ -170,7 +170,7 @@ describe('API fetch functions', () => {
     });
 
     it('addProduct sends POST request and returns new product', async () => {
-        const newProduct: Product = { id: 3, title: 'New Product' } as any;
+        const newProduct: Product = productMock;
         const data: FormDataProduct = formDataProductMock;
 
         (global.fetch as jest.Mock).mockResolvedValueOnce({

@@ -27,13 +27,13 @@ export interface ArrayProduct {
 };
 
 export const productNull : Product = {
-    "id": 0,
+    "id": 1,
     "title": "",
     "slug": "",
-    "price": 0,
+    "price": 1,
     "description": "",
     "category": {
-        "id": 0,
+        "id": 1,
         "name": "",
         "slug": "",
         "image": "",

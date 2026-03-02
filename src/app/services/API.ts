@@ -5,6 +5,7 @@ const API_CATEGORY = "https://api.escuelajs.co/api/v1/categories";
 
 export const fetchProducts = async (): Promise<Product[]> => {
     try {
+        console.log(`[fetchProducts] Fetching products at ${new Date().toISOString()}`);
         const response: Response = await fetch(API_PRODUCT);
         
         if (!response.ok) {

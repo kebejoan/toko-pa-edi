@@ -1,7 +1,6 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { HeaderToko } from '@/app/components';
-import { useCart } from '@/context/CartContext';
 import { useSession } from 'next-auth/react';
 import { MainHeader } from '@/app/components/Header';
 

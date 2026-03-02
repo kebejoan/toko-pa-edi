@@ -4,8 +4,6 @@ import ProductPageWrapper from '@/app/components/ProductPageComponents';
 import { ProductTree } from '@/app/components/ProductPageComponents';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 15;
-
 interface PageProps {
     params: Promise<{ slug: string }>;
 }

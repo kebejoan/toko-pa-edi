@@ -13,6 +13,75 @@ interface ProductFormProps {
     isEdit : boolean
 }
 
+export function LoadingFormProduct(){
+
+    return (
+        <div className="w-full flex flex-col gap-6 items-center animate-pulse">
+            {/* Images row (2 fixed skeletons) */}
+            <div className="flex gap-4 w-full justify-center">
+                <div className="bg-gray-300 w-[144px] h-[144px] rounded-md text-center overflow-hidden" />
+                <div className="bg-gray-300 w-[144px] h-[144px] rounded-md text-center overflow-hidden" />
+            </div>
+
+            {/* Nama Barang */}
+            <div className="flex flex-col gap-2 w-full h-[72px]">
+                <div className="bg-slate-300 w-full h-5 rounded" />
+                <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+            </div>
+
+            {/* Harga */}
+            <div className="flex flex-col gap-2 w-full h-[72px]">
+                <div className="bg-slate-300 w-full h-5 rounded" />
+                <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+            </div>
+
+            {/* Link Gambar list (2 fixed skeleton rows) */}
+            <div className="flex flex-col gap-2 w-full">
+                <div className="bg-slate-300 w-full h-5 rounded" />
+                <div className="flex flex-col gap-4 w-full">
+                {/* Two fixed input skeleton rows */}
+                <div className="flex gap-2 items-center w-full">
+                    <div className="bg-slate-300 font-bold rounded w-6 h-6 flex justify-center items-center select-none">&nbsp;</div>
+                    <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+                    <div className="bg-red-300 rounded-md h-[32px] w-10" />
+                </div>
+                <div className="flex gap-2 items-center w-full">
+                    <div className="bg-slate-300 font-bold rounded w-6 h-6 flex justify-center items-center select-none">&nbsp;</div>
+                    <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+                    <div className="bg-red-300 rounded-md h-[32px] w-10" />
+                </div>
+
+                {/* Add new image input */}
+                <div className="flex gap-2 items-center w-full">
+                    <div className="bg-slate-300 font-bold rounded w-6 h-6 flex justify-center items-center select-none">&nbsp;</div>
+                    <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+                    <div className="bg-emerald-300 rounded-md h-[32px] w-10" />
+                </div>
+                </div>
+            </div>
+
+            {/* Deskripsi */}
+            <div className="flex flex-col gap-2 w-full">
+                <div className="bg-slate-300 w-full h-5 rounded" />
+                <div className="w-full h-[144px] bg-slate-200 rounded-md" />
+            </div>
+
+            {/* Kategori */}
+            <div className="flex flex-col gap-2 w-full h-[72px]">
+                <div className="bg-slate-300 w-full h-5 rounded" />
+                <div className="w-full h-[32px] bg-slate-200 rounded-md" />
+            </div>
+
+            {/* Submit button */}
+            <div className="flex justify-end w-full">
+                <div className="bg-slate-400 rounded-md w-[96px] h-[32px]" />
+            </div>
+        </div>
+
+    )
+    
+}
+
 export default function ProductForm({ product, categories, isEdit}: ProductFormProps) {
     const Convert = new ConvertPrice();
     const router = useRouter();
@@ -23,11 +92,11 @@ export default function ProductForm({ product, categories, isEdit}: ProductFormP
 
     useEffect(() => {
         setFormData({
-            title: product?.title || "",
-            price: product?.price || "",
-            description: product?.description || "",
+            title: product?.title || "Title",
+            price: product?.price || "12",
+            description: product?.description || "Description",
             images: product?.images || [],
-            categoryId: product?.category.id || 0,
+            categoryId: product?.category.id || 1,
         });
         setPriceIDR(Convert.USDtoIDR(Number(product?.price)));
     }, [product]);

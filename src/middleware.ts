@@ -24,6 +24,10 @@ export async function middleware(req: NextRequest) {
     if (!isAuthenticated && isProtectedPage) {
         return NextResponse.redirect(new URL("/login", req.url));
     }
+    
+    if (!isAuthenticated && isAdminPage) {
+        return NextResponse.redirect(new URL("/login", req.url));
+    }
 
     return NextResponse.next();
     }
